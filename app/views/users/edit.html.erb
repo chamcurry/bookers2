@@ -3,7 +3,8 @@
   <p>Name</p>
   <%= f.text_field :name %>
   <p>Image</p>
+  <%=f.file_field :profile_image %>
   <p>Introduction</p>
   <%=f.text_area :introduction %><br>
-  <%=link_to 'Update User',user_path(current_user.id),class: "btn btn-secondary"%>
+  <%=f.submit 'Update User',class: "btn btn-secondary"%>
 <% end %>

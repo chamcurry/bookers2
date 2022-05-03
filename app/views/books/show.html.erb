@@ -1,2 +1,19 @@
-<h1>Books#show</h1>
-<p>Find me in app/views/books/show.html.erb</p>
+<%= render 'users/list',book: @book %>
+
+<div class="col-8 offset-md-1">
+        <h2>Book detail</h2>
+    <table class="table">
+        <tbody>
+          <tr>
+            <td>
+             <%=link_to user_path(params[:id]) do %>
+              <%=image_tag @book.user.get_profile_image(100,100) %>
+              <!--<div>ここに特定のユーザーの詳細ページのリンクをつけたい</div>-->
+             <% end %>
+              </td>
+            <td><%=link_to @book.title%></td>
+            <td><%=@book.body %></td>
+          </tr>
+        </tbody>
+    </table>
+</div>
