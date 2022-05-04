@@ -1,19 +1,27 @@
-<%= render 'users/lists',book: @book %>
-
-<div class="col-8 offset-md-1">
-        <h2>Book detail</h2>
-    <table class="table">
-        <tbody>
-          <tr>
-            <td>
-             <%=link_to user_path(params[:id]) do %>
-              <%=image_tag @book.user.get_profile_image(100,100) %>
-              <!--<div>ここに特定のユーザーの詳細ページのリンクをつけたい</div>-->
-             <% end %>
-              </td>
-            <td><%=link_to @book.title%></td>
-            <td><%=@book.body %></td>
-          </tr>
-        </tbody>
-    </table>
+<div class="container px-5">
+ <div class="row">
+   <%= render 'users/list', book: @book %>
+    <div class="col-md-8 offset-md-1">
+         <h2>Book detail</h2>
+        <table class="table">
+            <tbody>
+                 <tr>
+                  <td>
+                     <%=link_to user_path(params[:id]) do %>
+                      <%=image_tag @book.user.get_profile_image(100,100) %> <br>
+                      <%=@book.user.name %>
+                     <% end %>
+                  </td>
+                  <td><%=link_to @book.title %></td>
+                  <td><%=@book.body %><td>
+                  <!--if文でcurrent_userだけ編集、削除ボタンが表示されるようにする-->
+                 <%if @user == current_user%>
+                  <td><%=link_to "Edit",edit_book_path(@user),class: "btn btn-success" %></td>
+                 <% end %>
+                  <td></td>
+                 </tr>
+            </tbody>
+        </table>
+    </div>
+  </div>
 </div>
