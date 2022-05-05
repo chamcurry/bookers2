@@ -1,6 +1,6 @@
 <div class="container px-5">
  <div class="row">
-   <%= render 'users/list', book: @book,user: @user %>
+   <%= render 'users/list', book: @newbook,user: @book.user %>
     <div class="col-md-8 offset-md-1">
          <h2>Book detail</h2>
         <table class="table">
@@ -14,11 +14,10 @@
                   </td>
                   <td><%=link_to @book.title %></td>
                   <td><%=@book.body %><td>
-                  <!--if文でcurrent_userだけ編集、削除ボタンが表示されるようにする-->
-                 <%if @user == current_user%>
-                  <td><%=link_to "Edit",edit_book_path(@user),class: "btn btn-success" %></td>
-                 <% end %>
-                  <td></td>
+                  <%if @book.user == current_user%>
+                   <td><%=link_to "Edit",edit_book_path(@book),class: "btn btn-success" %></td>
+                   <td><%=link_to "Destroy",book_path(@book),method: :delete,class: "btn btn-danger" %></td>
+                  <% end %>
                  </tr>
             </tbody>
         </table>

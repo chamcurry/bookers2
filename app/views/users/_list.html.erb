@@ -1,15 +1,16 @@
     <div class="col">
       <h2>User info</h2>
-      <%= image_tag current_user.get_profile_image(100,100) %>
+      <!--インスタンス変数-->
+      <%= image_tag user.get_profile_image(100,100) %>
       <table class="table">
        <tbody>
         <tr>
           <th>name</th>
-          <!--<th><book.current_user.name </th>-->
+          <th><%=user.name %></th>
         </tr>
         <tr>
           <th>introduction</th>
-          <!--<th><book.cuser.introduction </th>-->
+          <th><%=user.introduction %></th>
         </tr>
        </tbody>
       </table>
@@ -20,7 +21,7 @@
       </div>
       <!--New Bookが編集機能になっているが、新規投稿にしたい-->
       <h2 class="mt-3">New book</h2>
-      <!--<%= form_with model: book do |f| %>インスタンス変数-->
+      <%= form_with model: book do |f| %>
        <p>Title</p>
        <%=f.text_field :title %>
        <p>Opinion</p>
