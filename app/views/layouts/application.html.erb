@@ -24,10 +24,9 @@
           <ul class="navbar-nav ml-auto">
           <% if user_signed_in? %>
            <li>
-            <a class="nav-link text-light" href="/">
-             <i class="fa-solid fa-house-chimney"></i>
-             Home
-            </a>
+            <%= link_to user_path(current_user),class: "nav-link text-light" do %>
+              <i class="fa-solid fa-house-chimney"></i>Home
+            <% end %>
            </li>
            <li>
             <a class="nav-link text-light" href="/users">
@@ -42,11 +41,9 @@
             </a>
            </li>
            <li>
-            <span class="nav-link">
-             <a class="text-light fa-solid fa-right-from-bracket"></a>
-             <a class="text-light"<%= link_to "Log out", destroy_user_session_path, method: :delete %></a>
-            </span>
-
+             <%= link_to destroy_user_session_path, method: :delete,class: "nav-link text-light" do %>
+              <i class="fa-solid fa-right-from-bracket"></i>Log out
+             <% end %>
            </li>
           <% else %>
            <li>
@@ -56,7 +53,7 @@
             </a>
            </li>
            <li>
-            <a class="nav-link text-light" href="home/about">
+            <a class="nav-link text-light" href="/home/about">
              <i class="fa-solid fa-link"></i>
              About
             </a>
@@ -81,7 +78,7 @@
    </header>
 
    <main>
-    <p id="notice"></p>
+    <%=notice %>
     <%= yield %>
    </main>
 
