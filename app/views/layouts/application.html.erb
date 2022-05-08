@@ -25,48 +25,48 @@
           <% if user_signed_in? %>
            <li>
             <%= link_to user_path(current_user),class: "nav-link text-light" do %>
-              <i class="fa-solid fa-house-chimney"></i>Home
+              <i class="fas fa-home"></i>Home
             <% end %>
            </li>
            <li>
             <a class="nav-link text-light" href="/users">
-            <i class="fa-solid fa-users"></i>
+            <i class="fas fa-users"></i>
              Users
             </a>
            </li>
            <li>
             <a class="nav-link text-light" href="/books">
-            <i class="fa-solid fa-book-open"></i>
+            <i class="fas fa-book-open"></i>
              Books
             </a>
            </li>
            <li>
              <%= link_to destroy_user_session_path, method: :delete,class: "nav-link text-light" do %>
-              <i class="fa-solid fa-right-from-bracket"></i>Log out
+              <i class="fas fa-sign-out-alt"></i>Log out
              <% end %>
            </li>
           <% else %>
            <li>
             <a class="nav-link text-light" href="/">
-             <i class="fa-solid fa-house-chimney"></i>
+             <i class="fas fa-home"></i>
              Home
             </a>
            </li>
            <li>
             <a class="nav-link text-light" href="/home/about">
-             <i class="fa-solid fa-link"></i>
+             <i class="fas fa-link"></i>
              About
             </a>
            </li>
            <li>
             <a class="nav-link text-light" href="/users/sign_up">
-             <i class="fa-solid fa-user-plus"></i>
+             <i class="fas fa-user-plus"></i>
              Sign up
             </a>
            </li>
            <li>
             <a class="nav-link text-light" href="/users/sign_in">
-             <i class="fa-solid fa-right-to-bracket"></i>
+             <i class="fas fa-sign-in-alt"></i>
              Log in
             </a>
            </li>
@@ -78,7 +78,7 @@
    </header>
 
    <main>
-    <%=notice %>
+    <%= notice %>
     <%= yield %>
    </main>
 
